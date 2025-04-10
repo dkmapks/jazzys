@@ -1,1 +1,52 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #ffcccb, #ff9999);
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
 
+#game-container {
+    padding: 20px;
+}
+
+header {
+    background-color: #cc0000;
+    color: white;
+    padding: 10px;
+}
+
+button {
+    background-color: #ff6666;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #ff3333;
+}
+
+#mod-menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 2px solid #333;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+input[type="password"] {
+    margin-top: 10px;
+    padding: 5px;
+}
