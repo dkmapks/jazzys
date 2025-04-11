@@ -1,36 +1,27 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gra: Agencja i Kasyno</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BranzoTest</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="game-container">
-        <header>
-            <h1>Agencja i Kasyno</h1>
-        </header>
-        <main>
-            <section id="stats">
-                <p>Hajs: <span id="money">100</span> PLN</p>
-                <p>Czas w agencji: <span id="time">0</span> minut</p>
-            </section>
-            <section id="actions">
-                <button onclick="visitAgency()">Idź do Agencji (50 PLN/min)</button>
-                <button onclick="playCasino()">Zagraj w Kasynie</button>
-            </section>
-        </main>
-        <footer>
-            <p>Wpisz kod, aby aktywować Mod Menu: <input type="password" id="mod-code" maxlength="4"></p>
-        </footer>
-    </div>
-    <div id="mod-menu" class="hidden">
-        <h2>Mod Menu</h2>
-        <button onclick="addMoney()">Dodaj 100 PLN</button>
-        <button onclick="addTime()">Dodaj 10 minut w Agencji</button>
-        <button onclick="closeModMenu()">Zamknij</button>
-    </div>
-    <script src="script.js"></script>
+  <div class="container">
+    <h1>BranzoTest - Kalkulator Miłości</h1>
+    <p class="description">Sprawdź, jakie szanse na miłość mają dwa imiona!</p>
+    <form id="loveForm">
+      <input type="text" id="name1" placeholder="Twoje imię" required>
+      <input type="text" id="name2" placeholder="Imię ukochanej/ukochanego" required>
+      <button type="submit">Oblicz</button>
+    </form>
+    <div id="result" class="result"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 BranzoTest. Wszystkie prawa zastrzeżone.</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
