@@ -1,54 +1,34 @@
-let money = 100;
-let time = 0;
+document.getElementById('loveForm').addEventListener('submit', function(event) {
+  event.preventDefault();
 
-// Funkcje gry
-function visitAgency() {
-    if (money >= 50) {
-        money -= 50;
-        time += 1;
-        updateStats();
-    } else {
-        alert("Nie masz wystarczająco hajsu!");
-    }
-}
+  const name1 = document.getElementById('name1').value.trim().toLowerCase();
+  const name2 = document.getElementById('name2').value.trim().toLowerCase();
 
-function playCasino() {
-    const win = Math.random() < 0.5; // 50% szans na wygraną
-    const amount = Math.floor(Math.random() * 200) + 1; // Wygrana/strata od 1 do 200 PLN
-    if (win) {
-        money += amount;
-        alert(`Wygrałeś ${amount} PLN!`);
-    } else {
-        money -= amount;
-        alert(`Przegrałeś ${amount} PLN!`);
-    }
-    updateStats();
-}
+  const specialPairs = [
+    { first: "amelia", second: "dominik" },
+    { first: "amelka", second: "dominik" },
+    { first: "amelcia", second: "dominik" }
+  ];
 
-// Aktualizuj statystyki
-function updateStats() {
-    document.getElementById("money").textContent = money;
-    document.getElementById("time").textContent = time;
-}
+  let resultText;
 
-// Mod Menu
-document.getElementById("mod-code").addEventListener("input", function () {
-    if (this.value === "7432") {
-        document.getElementById("mod-menu").classList.remove("hidden");
-        this.value = ""; // Czyść pole kodu
-    }
+  // Check for special cases
+  const isSpecialPair = specialPairs.some(pair =>
+    (pair.first === name1 && pair.second === name2) ||
+    (pair.first === name2 && pair.second === name1)
+  );
+
+  if (isSpecialPair) {
+    resultText = `Miłość między ${capitalize(name1)} i ${capitalize(name2)} wynosi 100%! ❤️`;
+  } else {
+    const randomPercentage = Math.floor(Math.random() * 101);
+    resultText = `Miłość między ${capitalize(name1)} i ${capitalize(name2)} wynosi ${randomPercentage}%.`;
+  }
+
+  document.getElementById('result').textContent = resultText;
 });
 
-function addMoney() {
-    money += 100;
-    updateStats();
-}
-
-function addTime() {
-    time += 10;
-    updateStats();
-}
-
-function closeModMenu() {
-    document.getElementById("mod-menu").classList.add("hidden");
+// Capitalize the first letter of names
+function capitalize(name) {
+  return name.charAt(0).toUpperCase() + name.slice(1);
 }
